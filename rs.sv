@@ -10,9 +10,9 @@ module rs (
     reg [`RS_W-1:0] RS_mul [0:`RS_MUL_SIZE-1];
     reg [`RS_W-1:0] RS_lsu [0:`RS_LSU_SIZE-1];
 
-    reg [$clog2(`RS_INT_SIZE)-1:0] free_int [0:$clog2(`RS_INT_SIZE)-1];
-    reg [$clog2(`RS_MUL_SIZE)-1:0] free_mul [0:$clog2(`RS_MUL_SIZE)-1];
-    reg [$clog2(`RS_LSU_SIZE)-1:0] free_lsu [0:$clog2(`RS_LSU_SIZE)-1];
+    reg [$clog2(`RS_INT_SIZE)-1:0] free_int [0:`RS_INT_SIZE-1];
+    reg [$clog2(`RS_MUL_SIZE)-1:0] free_mul [0:`RS_MUL_SIZE-1];
+    reg [$clog2(`RS_LSU_SIZE)-1:0] free_lsu [0:`RS_LSU_SIZE-1];
 
     reg [$clog2(`RS_INT_SIZE)-1:0] head_int;
     reg [$clog2(`RS_INT_SIZE)-1:0] tail_int;
