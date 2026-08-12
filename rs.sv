@@ -56,8 +56,8 @@ module rs (
                     end
                     else begin
                         RS_int[tail_int] <= {uops_in[i][`UOP_ROB_TAG],uops_in[i][`UOP_ALU_OP],!uops_in[i][`UOP_Q1_VALID],uops_in[i][`UOP_Q1_TAG],value_in[i][31:0],!uops_in[i][`UOP_Q2_VALID],uops_in[i][`UOP_Q2_TAG],value_in[i][63:32]};
-                        tail_int <= tail_int + 1;                       
                     end
+                    tail_int <= tail_int + 1;
                 end
                 else if (uops_in[i][`UOP_FU_TYPE] == `FU_MUL) begin
                     RS_mul[tail_mul] <= {uops_in[i][`UOP_ROB_TAG],uops_in[i][`UOP_MUL_OP],!uops_in[i][`UOP_Q1_VALID],uops_in[i][`UOP_Q1_TAG],value_in[i][31:0],!uops_in[i][`UOP_Q2_VALID],uops_in[i][`UOP_Q2_TAG],value_in[i][63:32]};

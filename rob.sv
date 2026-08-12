@@ -48,7 +48,7 @@ module rob (
 
             for (k = 0;k < `N_CDB ;k = k + 1 ) begin
                 for (r = 0;r < `ROB_SIZE ;r = r + 1 ) begin
-                    if (CDB_in[k][39:38] == 2'b10) begin
+                    if (CDB_in[k][39:38] == 2'b01) begin
                         ROB_reg[CDB_in[k][37:32]][136:105] <= CDB_in[k][31:0];
                     end
                     else if (CDB_in[k][39:38] == 2'b10) begin
