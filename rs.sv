@@ -77,7 +77,12 @@ module rs (
                     free_mul_counter <= free_mul_counter - 1;
                 end
                 else if (uops_in[i][`UOP_FU_TYPE] == `FU_LSU) begin
-                    RS_lsu[tail_lsu] <= {uops_in[i][`UOP_ROB_TAG],uops_in[i][`UOP_ALU_OP],!uops_in[i][`UOP_Q1_VALID],uops_in[i][`UOP_Q1_TAG],value_in[i][31:0],!uops_in[i][`UOP_Q2_VALID],uops_in[i][`UOP_Q2_TAG],value_in[i][63:32]};
+                    if (uops_in[i]['UOP_IS_STORE]) begin
+                        RS_lsu[tail_lsu] <= {uops_in[i][`UOP_ROB_TAG],uops_in[i][`UOP_ALU_OP],!uops_in[i][`UOP_Q1_VALID],uops_in[i][`UOP_Q1_TAG],value_in[i][31:0],!uops_in[i][`UOP_Q2_VALID],uops_in[i][`UOP_Q2_TAG],value_in[i][63:32]};
+                    end
+                    else begin
+                        RS_lsu[tail_lsu] <= {uops_in[i][`UOP_ROB_TAG],uops_in[i][`UOP_ALU_OP],!uops_in[i][`UOP_Q1_VALID],uops_in[i][`UOP_Q1_TAG],value_in[i][31:0],1'b1,uops_in[i][`UOP_Q2_TAG],uops_in[i][`UOP_IMM]};
+                    end
                     tail_lsu <= tail_lsu + 1;
                     free_lsu_counter <= free_lsu_counter - 1;
                 end
