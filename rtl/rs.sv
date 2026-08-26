@@ -48,15 +48,15 @@ module rs (
                 free_lsu[i] <= ($clog2(`RS_LSU_SIZE))'(i);
             end
 
-            head_int <= $clog2(`RS_INT_SIZE)'d0;
+            head_int <= $clog2(`RS_INT_SIZE)'d15;
             tail_int <= $clog2(`RS_INT_SIZE)'d0;
-            head_mul <= $clog2(`RS_MUL_SIZE)'d0;
+            head_mul <= $clog2(`RS_MUL_SIZE)'d7;
             tail_mul <= $clog2(`RS_MUL_SIZE)'d0;
-            head_lsu <= $clog2(`RS_LSU_SIZE)'d0;
+            head_lsu <= $clog2(`RS_LSU_SIZE)'d15;
             tail_lsu <= $clog2(`RS_LSU_SIZE)'d0;
 
             free_int_counter <= $clog2(`RS_INT_SIZE)'d16;
-            free_mul_counter <= $clog2(`RS_MUL_SIZE)'d16;
+            free_mul_counter <= $clog2(`RS_MUL_SIZE)'d8;
             free_lsu_counter <= $clog2(`RS_LSU_SIZE)'d16;
         end
         else begin
